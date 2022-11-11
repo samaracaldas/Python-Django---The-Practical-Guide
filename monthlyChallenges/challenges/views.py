@@ -15,7 +15,7 @@ monthly_challenges = {
     "september": "Learn Django for at least 20",
     "october": "Eat no meat for the entire month!",
     "november" : "Walk at least 20 minutes  every day.",
-    "december": "Learn Django for at least 20 minutes every day'"     
+    "december": "Learn Django for at least 20 minutes every day."     
         
 }
 
@@ -23,14 +23,15 @@ monthly_challenges = {
 # Create your views here.
 
 def index(request):
-    lis_items = ""
+    list_items = ""
     months = list(monthly_challenges.keys())
     
     for month in months:
         capitalized_month = month.capitalize()  
-        month_path =  reverse("month-challenge", args=[month])  
+        month_path = reverse("month-challenge", args=[month])  
         list_items += f"<li><a href=\"{month_path}\">{capitalized_month}</a></li>" 
-        
+
+    # "<li><a href="...">January</a></li><li><a href="...">February</a></li>..."s 
     response_data = f"<ul>{list_items}</ul>"
     return HttpResponse(response_data)
 
