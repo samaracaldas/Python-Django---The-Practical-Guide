@@ -1,0 +1,12 @@
+{
+    "python.pythonPath": "/usr/local/bin/python3",
+    "window.zoomLevel": 0,
+    "python.languageServer": "Pylance",
+    "files.associations": {
+        "**/*.html": "html",
+        "**/templates/**/*.html": "django-html",
+        "**/templtes/**/*": "django-txt",
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+    },
+    "element.includeLanguages": { "django-html": "html"}
+}
