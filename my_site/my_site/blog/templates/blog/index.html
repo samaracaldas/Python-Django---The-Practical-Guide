@@ -1,0 +1,42 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %} 
+My Blog 
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+<section id="welcome">
+  <header>
+    <img src="{% static "blog/images/cat.jpg" %}" alt="Max - The Author Of This Blog" />
+    <h2>SAMARA'S BLOG</h2>
+  </header>
+  <p>Hello! My name is Samara, I love listening to music and here you will find all the news about the music industry
+    and your favorite singers!!</p>
+</section>
+
+<section id="latest-posts">
+  <h2>Latest News</h2>
+
+  <ul>
+    {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>What I Do</h2>
+  <p>
+    I love singers, I love to help others and I enjoy talk about music!
+  </p>
+  <p>
+    My job is to help you to get informed about the musical environment!
+  </p>
+</section>
+{% endblock %}
