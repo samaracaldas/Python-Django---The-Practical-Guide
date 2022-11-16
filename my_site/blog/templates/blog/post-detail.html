@@ -2,7 +2,7 @@
 {% load static %} 
 
 {% block title %} 
-This Post Title 
+{{ post.title }}
 {% endblock %} 
 
 {% block css_files %} 
@@ -11,29 +11,15 @@ This Post Title
 
 {% block content %}
 <section id="summary">
-  <h2>Taylor Swift releases her <br> tenth studio album</h2>
+  <h2>{{ post.title }}</h2>
   <article>
-    <img src="{% static "blog/images/midnight.jpg" %}" alt="Post Title" />
-    <address>By Samara</address>
-    <div>Last updated on <time>November 10th</time></div>
+    <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}" />
+    <address>By {{ post.author }}</address>
+    <div>Last updated on <time>{{ post.date|date:"d M Y" }}</time></div>
   </article>
 </section>
 
 <main>
-  <p>
-    Taylor Swift released her tenth studio album this Friday (21st). "Midnights" has thirteen tracks, written and
-    produced alongside Jack Antonoff and also a participation of Lana Del Rey in one of the songs.
-
-  </p>
-  <p>
-    Taylor, 32, describes this new work "as a collage of intensity, ups and downs and ebbs". On her Instagram profile,
-    she says it's a concept album in which the thirteen songs form "a complete picture of the intensities of that crazy
-    and mysterious hour".
-  </p>
-  <p>
-    The first track is "Lavender Haze," a term Swift said she first heard while watching the "Mad Men" television
-    series about being in love, as she described the album's first single "Anti-Hero" as one of her favorite songs
-    she's ever written, in which she delve into her insecurities. The clip for this track was the first to debut.
-  </p>
+  {{ post.content|linebreaks }}
 </main>
 {% endblock %}

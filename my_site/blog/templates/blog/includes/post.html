@@ -2,15 +2,13 @@
 
 <li>
   <article class="post">
-    <a href="{% url "post-detail-page" "the-mountains" %}">
-      <img src="{% static "blog/images/taylor.jpg" %}" alt="Mountain Hiking"
+    <a href="{% url "post-detail-page" post.slug %}">
+      <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}"
       />
       <div class="post__content">
-        <h3>Midnights</h3>
+        <h3>{{ post.title }}</h3>
         <p>
-          Midnights is the tenth studio album by American singer Taylor Swift, released on October 21,
-          2022 through Republic Records. Announced at the 2022 MTV Video Music Awards, the album marks 
-          Swift's first new work since her ninth studio album Evermore.
+          {{ post.excerpt }}
         </p>
       </div>
     </a>
